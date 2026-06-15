@@ -1,25 +1,114 @@
 version: 2
+
 updates:
-  - package-ecosystem: uv
-    directory: '/'
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: monthly
-    target-branch: dev
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+      timezone: "America/Edmonton"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    open-pull-requests-limit: 3
+    groups:
+      github-actions-minor-patch:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
-  - package-ecosystem: pip
-    directory: '/backend'
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
-      interval: monthly
-    target-branch: dev
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+      timezone: "America/Edmonton"
+    labels:
+      - "dependencies"
+      - "javascript"
+    open-pull-requests-limit: 5
+    groups:
+      npm-minor-patch:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
-  - package-ecosystem: github-actions
-    directory: '/'
+  - package-ecosystem: "pip"
+    directory: "/"
     schedule:
-      interval: monthly
-    target-branch: dev
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+      timezone: "America/Edmonton"
+    labels:
+      - "dependencies"
+      - "python"
+    open-pull-requests-limit: 5
+    groups:
+      pip-minor-patch:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
-  - package-ecosystem: npm
-    directory: '/'
+  - package-ecosystem: "pip"
+    directory: "/backend"
     schedule:
-      interval: monthly
-    target-branch: dev
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+      timezone: "America/Edmonton"
+    labels:
+      - "dependencies"
+      - "python"
+    open-pull-requests-limit: 5
+    groups:
+      pip-minor-patch:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "uv"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+      timezone: "America/Edmonton"
+    labels:
+      - "dependencies"
+      - "python"
+    open-pull-requests-limit: 5
+    groups:
+      uv-minor-patch:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+      timezone: "America/Edmonton"
+    labels:
+      - "dependencies"
+      - "docker"
+    open-pull-requests-limit: 5
